@@ -36,16 +36,16 @@
 
 <form class="pure-form-aligned" action="validation.php" method="post">
     <!-- Answer of the Quiz -->
-    <input type="hidden" name="point[]" value="AQ1_A">
-    <input type="hidden" name="point[]" value="AQ2_B">
-    <input type="hidden" name="point[]" value="AQ3_C">
-    <input type="hidden" name="point[]" value="AQ4_A">
-    <input type="hidden" name="point[]" value="AQ5_B">
-    <input type="hidden" name="point[]" value="AQ6_C">
-    <input type="hidden" name="point[]" value="AQ7_A">
-    <input type="hidden" name="point[]" value="AQ8_B">
-    <input type="hidden" name="point[]" value="AQ9_C">
-    <input type="hidden" name="point[]" value="AQ10_A">
+    <input type="hidden" name="point[]" value="AQ0_A">
+    <input type="hidden" name="point[]" value="AQ1_B">
+    <input type="hidden" name="point[]" value="AQ2_C">
+    <input type="hidden" name="point[]" value="AQ3_A">
+    <input type="hidden" name="point[]" value="AQ4_B">
+    <input type="hidden" name="point[]" value="AQ5_C">
+    <input type="hidden" name="point[]" value="AQ6_A">
+    <input type="hidden" name="point[]" value="AQ7_B">
+    <input type="hidden" name="point[]" value="AQ8_C">
+    <input type="hidden" name="point[]" value="AQ9_A">
     <!-- -->
     <table>
      <fieldset id="inputs">
@@ -83,213 +83,52 @@
              <br>
          </div>
 
+         <?php
+         Generate_html(2 );
+
+         function Generate_html($Num_Questions){
+
+             //creation of array to questions
+             $Questions_Array = array(
+                 array("Le langage que l'ordinateur comprend est?","Binaire","Java","Visual Basic",),
+                 array("L'un de ceux-ci n'est pas un programme:","L'ide","Le code source","Le compilateur"),
+                 array("Le programme qui rectifie les erreurs commises par le programmeur est le ....","Le compilateur","L'éditeur de texte","Débugger"),
+                 array("La programmation, c'est?","La réalisation d'un programme", "La correction des erreurs commises par le programmeur","La traduction d'un langage informatique au langage binaire"),
+             );
+
+             $A_QLetters = array("z","A", "B", "C");
+
+             for ($Count = 0; $Count < $Num_Questions; $Count++ ) {
+                 echo "<div class=\"col-xs-8 col-sm-6\">";
+                 echo "<label>{$Questions_Array[$Count][0]}</label>";
+                 echo "<br>";
+                 echo "<br>";
+
+                 for($CQuiz = 1; $CQuiz <= 3; $CQuiz++) {
+
+                     echo "<div class=\"custom-radio\">";
+                     echo '<div class="col-sm-3">';
+                     echo "<label>";
+                     echo "<input  class='required' name='Answers_Q{$Count}' type='radio' value='AQ{$Count}_{$A_QLetters[$CQuiz]}' id='Answ_Q{$Count}{$A_QLetters[$CQuiz]}_Radio' autofocus required>";
+                     echo "</label>";
+                     echo "<label for='Answ_Q{$Count}{$A_QLetters[$CQuiz]}_Radio' class='col-sm-4 control-label>'<span></span>{$Questions_Array[$Count][$CQuiz]}</label>";
+                     echo "</div>";
+                     echo "</div>";
+                     echo "<br>";
+
+                 }
+                 echo "</div>";
+                 echo "<br>";
+
+
+             }
+         }
+
+
+         ?>
 
 
 
-         <!-- Question 1 -->
-<div class="col-xs-8 col-sm-6">
-      <label>Question 1</label><br><br>
-      <div class="custom-radio">
-        <div class="col-sm-3">
-        <input  class="form-control" name="Answers_Q1" type="radio" value="AQ1_A" id="Answ_Q1A_Radio" autofocus required>
-            <label for="Answ_Q1A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-        </div>
-      </div>
-
-<br>
-
-      <div class="custom-radio">
-
-        <div class="col-sm-1">
-        <input  class="form-control" name="Answers_Q1" type="radio" value="AQ1_B" id="Answ_Q1B_Radio" autofocus required>
-            <label for="Answ_Q1B_Radio" class="col-sm-2 control-label"><span></span>Réponse B</label>
-        </div>
-      </div>
-
-    <br>
-
-      <div class="custom-radio">
-          <div class="col-sm-1">
-        <input  class="form-control" name="Answers_Q1" type="radio" value="AQ1_C" id="Answ_Q1C_Radio" autofocus required>
-            <label for="Answ_Q1C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-        </div>
-      </div>
-
-</div>
-
-<br>
-         <!-- Question 2 -->
-
-         <div class="col-xs-8 col-sm-6">
-             <label>Question 2</label><br><br>
-             <div class="custom-radio">
-                 <div class="col-sm-3">
-                     <input  class="form-control" name="Answers_Q2" type="radio" value="AQ2_A" id="Answ_Q2A_Radio" autofocus required>
-                     <label for="Answ_Q2A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-                 </div>
-             </div>
-
-             <br>
-
-             <div class="custom-radio">
-
-                 <div class="col-sm-1">
-                     <input  class="form-control" name="Answers_Q2" type="radio" value="AQ2_B" id="Answ_Q2B_Radio" autofocus required>
-                     <label for="Answ_Q2B_Radio" class="col-sm-2 control-label"><span></span>Réponse B</label>
-                 </div>
-             </div>
-
-             <br>
-
-             <div class="custom-radio">
-                 <div class="col-sm-1">
-                     <input  class="form-control" name="Answers_Q2" type="radio" value="AQ2_C" id="Answ_Q2C_Radio" autofocus required>
-                     <label for="Answ_Q2C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-                 </div>
-             </div>
-
-         </div>
-
-         <br>
-
-         <!-- Question 3 -->
-
-         <div class="col-xs-8 col-sm-6">
-             <label>Question 3</label><br><br>
-             <div class="custom-radio">
-                 <div class="col-sm-3">
-                     <input  class="form-control" name="Answers_Q3" type="radio" value="AQ3_A" id="Answ_Q3A_Radio" autofocus required>
-                     <label for="Answ_Q3A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-                 </div>
-             </div>
-
-             <br>
-
-             <div class="custom-radio">
-             <div class="col-sm-3">
-                 <input  class="form-control" name="Answers_Q3" type="radio" value="AQ3_B" id="Answ_Q3B_Radio" autofocus required>
-                 <label for="Answ_Q3B_Radio" class="col-sm-4 control-label"><span></span>Réponse B</label>
-             </div>
-         </div>
-
-         <br>
-
-             <div class="custom-radio">
-
-                 <div class="col-sm-1">
-                     <input  class="form-control" name="Answers_Q3" type="radio" value="AQ3_C" id="Answ_Q3C_Radio" autofocus required>
-                     <label for="Answ_Q3C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-                 </div>
-             </div>
-
-             <br>
-
-             <!-- Question 4 -->
-
-             <div class="col-xs-8 col-sm-6">
-                 <label>Question 4</label><br><br>
-                 <div class="custom-radio">
-                     <div class="col-sm-3">
-                         <input  class="form-control" name="Answers_Q4" type="radio" value="AQ4_A" id="Answ_Q4A_Radio" autofocus required>
-                         <label for="Answ_Q4A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-                 <div class="custom-radio">
-
-                     <div class="col-sm-1">
-                         <input  class="form-control" name="Answers_Q4" type="radio" value="AQ4_B" id="Answ_Q4B_Radio" autofocus required>
-                         <label for="Answ_Q4B_Radio" class="col-sm-2 control-label"><span></span>Réponse B</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-
-             <div class="custom-radio">
-                 <div class="col-sm-1">
-                     <input  class="form-control" name="Answers_Q4" type="radio" value="AQ4_C" id="Answ_Q4C_Radio" autofocus required>
-                     <label for="Answ_Q4C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-                 </div>
-             </div>
-
-         </div>
-
-         <br>
-
-             <!-- Question 5 -->
-
-             <div class="col-xs-8 col-sm-6">
-                 <label>Question 5</label><br><br>
-                 <div class="custom-radio">
-                     <div class="col-sm-3">
-                         <input  class="form-control" name="Answers_Q5" type="radio" value="AQ5_A" id="Answ_Q5A_Radio" autofocus required>
-                         <label for="Answ_Q5A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-                 <div class="custom-radio">
-
-                     <div class="col-sm-1">
-                         <input  class="form-control" name="Answers_Q5" type="radio" value="AQ5_B" id="Answ_Q5B_Radio" autofocus required>
-                         <label for="Answ_Q5B_Radio" class="col-sm-2 control-label"><span></span>Réponse B</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-
-                 <div class="custom-radio">
-                     <div class="col-sm-1">
-                         <input  class="form-control" name="Answers_Q5" type="radio" value="AQ5_C" id="Answ_Q5C_Radio" autofocus required>
-                         <label for="Answ_Q5C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-                     </div>
-                 </div>
-
-             </div>
-
-             <br>
-
-
-
-             <!-- Question 6 -->
-
-             <div class="col-xs-8 col-sm-6">
-                 <label>Question 6</label><br><br>
-                 <div class="custom-radio">
-                     <div class="col-sm-3">
-                         <input  class="form-control" name="Answers_Q6" type="radio" value="AQ6_A" id="Answ_Q6A_Radio" autofocus required>
-                         <label for="Answ_Q6A_Radio" class="col-sm-4 control-label"><span></span>Réponse A</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-                 <div class="custom-radio">
-
-                     <div class="col-sm-1">
-                         <input  class="form-control" name="Answers_Q6" type="radio" value="AQ6_B" id="Answ_Q6B_Radio" autofocus required>
-                         <label for="Answ_Q6B_Radio" class="col-sm-2 control-label"><span></span>Réponse B</label>
-                     </div>
-                 </div>
-
-                 <br>
-
-
-                 <div class="custom-radio">
-                     <div class="col-sm-1">
-                         <input  class="form-control" name="Answers_Q6" type="radio" value="AQ6_C" id="Answ_Q6C_Radio" autofocus required>
-                         <label for="Answ_Q6C_Radio" class="col-sm-2 control-label"><span></span>Réponse C</label>
-                     </div>
-                 </div>
-
-             </div>
-
-             <br>
 
              <button class="pure-button pure-button-primary" type="submit" value="Envoyer">Envoyer</button>
 
